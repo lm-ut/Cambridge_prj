@@ -47,9 +47,9 @@ def bootstrap_correlation(anc_values, prs_values, n_boot=10000):
 
 # Function to process a PRS file and its correlation with a specific trait
 def process_prs_file(prs_file_path, anc_column_name, key_file, ancestry_file, comparison_type):
-    prs_file = pd.read_csv(prs_file_path, delimiter=' ')
-    
+    prs_file = pd.read_csv(prs_file_path, delimiter='\t')
 
+	
     # Merge with the key and trait files
     Key = pd.merge(key_file, ancestry_file, on='IID', how='inner')
     Key_PRS = pd.merge(Key, prs_file, on='IID', how='inner')
@@ -91,10 +91,14 @@ def main():
 
     # Load key and trait files
     key_samples = pd.read_csv(args.key_samples, delimiter='\t')
-    prs_file = pd.read_csv(args.prs_file, delimiter=' ')
+    prs_file = pd.read_csv(args.prs_file, delimiter='\t')
     ancestry_file = pd.read_csv(args.ancestry_file, delimiter='\t')
     
-
+    #print(key_samples.head(10))
+    #print(prs_file.head(10))
+    #print(ancestry_file.head(10))
+    
+    
     # Initialize a list to store all results
     all_results = []
 
