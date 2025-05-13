@@ -71,7 +71,7 @@ def process_prs_file(prs_file_path, anc_column_name, key_file, ancestry_file, co
         'Ancestry': anc_column_name,
         'Comparison_Type': comparison_type,
         'Spearman_ρ': round(orig_rho, 4),
-        'p-value': round(orig_p, 4),
+        'p-value': orig_p,
         'Bootstrap_95%_CI': f"({ci_lower:.4f}, {ci_upper:.4f})",
         'Bootstrap_SE': round(se, 4)
     }
